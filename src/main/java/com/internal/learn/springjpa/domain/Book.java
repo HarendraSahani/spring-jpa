@@ -1,11 +1,14 @@
 package com.internal.learn.springjpa.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
-
+@Getter @Setter
 @Entity
 public class Book {
 
@@ -29,15 +32,17 @@ public class Book {
     }
 
     private String title;
-    private String author;
+    private String publisher;
     private String isbn;
     public Book() {
     }
-    public Book(String title, String author, String isbn) {
+    public Book(String title, String publisher, String isbn) {
         this.title = title;
-        this.author = author;
+        this.publisher = publisher;
         this.isbn = isbn;
     }
+
+
 
 
 }
