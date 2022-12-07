@@ -3,8 +3,9 @@ package com.internal.learn.springjpa.bootstrap;
 import com.internal.learn.springjpa.domain.Book;
 import com.internal.learn.springjpa.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
+@Profile({"local","default"})
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -15,7 +16,7 @@ public class DataInitializer implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-
+        bookRepository.deleteAll();
         Book DDD = new Book("Domain Driven Design","RandomHouse","123452345");
         Book saveDDD = bookRepository.save(DDD);
 
